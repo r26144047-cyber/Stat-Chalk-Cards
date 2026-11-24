@@ -6,7 +6,7 @@
 
 | 01 平均數與中位數｜圖卡 | 02 常態分布｜海報 | 03 信賴區間｜封面 |
 |:---:|:---:|:---:|
-| <img src="png/01-mean-median-圖卡.png" width="230"> | <img src="png/02-normal-distribution-海報.png" width="330"> | <img src="png/03-confidence-interval-封面.png" width="300"> |
+| <img src="images/preview-01-card.png" width="230"> | <img src="images/preview-02-poster.png" width="330"> | <img src="images/preview-03-cover.png" width="300"> |
 
 ---
 
@@ -66,7 +66,7 @@ stat-chalk-cards/
 
 ---
 
-## 🖼️ 三種用途
+## 三種用途
 
 | 用途 | 檔名尾碼 | 畫布 | PNG 輸出 | 放什麼 | 適合 |
 |---|---|---|---|---|---|
@@ -76,7 +76,7 @@ stat-chalk-cards/
 
 ---
 
-## 🚀 安裝
+## 安裝
 
 需要 Python 3.9+ 與 Node.js 18+。
 
@@ -91,9 +91,9 @@ npm install          # 安裝本機字型與 KaTeX
 
 ---
 
-## 🤖 搭配 AI 代理人使用（推薦）
+## 搭配 AI 使用
 
-`agent.md` 是寫給 AI 代理人的工作規範，規定了從主題到成品的完整流程，確保每張圖卡內容正確、風格一致。
+`agent.md` 是寫給 AI 的工作規範，規定了從主題到成品的完整流程，確保每張圖卡內容正確、風格一致。
 
 ### 使用方式
 
@@ -142,88 +142,3 @@ npm install          # 安裝本機字型與 KaTeX
 
 ---
 
-## 🛠️ 手動使用
-
-### 1. 寫筆記 `notes/NN-slug.md`
-
-只有 front matter 必填，本文用 `## 標題` 分塊：
-
-````markdown
----
-num: "04"
-title: 標準差
-subtitle: Standard Deviation
-tag: 敘述統計
----
-
-## 一句話
-
-標準差衡量資料**離平均有多遠**，而且[單位跟原資料相同]{黃}。
-
-## 公式
-
-$$ s=\sqrt{\frac{\sum (x_i-\bar{x})^2}{n-1}} $$
-
-## 口訣
-
-減去平均、平方加總，除 n−1 再開根
-````
-
-| 寫法 | 效果 |
-|---|---|
-| `**文字**` | 該區塊的主題色 |
-| `[文字]{黃}`（黃／粉／藍／綠／橘／白） | 指定粉筆色 |
-| `==文字==` | 黃色螢光底線 |
-| `$...$`、`$$...$$` | LaTeX 公式（KaTeX） |
-| `\| 表 \| 格 \|` | 粉筆線表格 |
-| ```` ```svg ```` | 內嵌 SVG 圖，自動套粉筆質感 |
-
-**標準結構**（`一句話`、`直覺`、`圖解`、`公式`、`例題`、`常見誤解`、`延伸`、`口訣`）可直接套用標準版型；
-其他結構請在 `layouts/` 寫自訂版面，詳見 `agent.md` 第 5 節。
-
-### 2. 產生 HTML
-
-```bash
-python build.py notes/04-standard-deviation.md -f 圖卡          # 單一用途
-python build.py notes/04-standard-deviation.md -f 圖卡 封面     # 多個用途
-python build.py notes/04-standard-deviation.md -f 全部          # 三種都做
-```
-
-`-f` 為必填。若 `layouts/04-standard-deviation-圖卡.html` 存在，會優先使用自訂版面。
-
-### 3. 輸出 PNG
-
-```bash
-python render.py html/04-standard-deviation-圖卡.html
-python render.py                      # 不給檔名則輸出 html/ 內全部
-```
-
-內容超出版面時會顯示警告，請精簡筆記文字後重跑。
-
----
-
-## 🎨 修改風格
-
-所有視覺風格都在 `templates/base.css`：改一次，所有圖卡、所有尺寸一起更新。
-版型檔（`card.html`、`poster.html`、`cover.html`）與 `layouts/` 只負責尺寸與排列，不定義顏色或材質。
-
-| 粉筆色 | 色碼 | 建議用途 |
-|---|---|---|
-| 白 | `#f5f3ec` | 一般文字 |
-| 黃 | `#f9e27d` | 最重要的結論 |
-| 粉 | `#f7a8c0` | 警告、錯誤 |
-| 藍 | `#9fd8f5` | 定義 |
-| 綠 | `#b5e8a8` | 正確做法、答案 |
-| 橘 | `#f9b97a` | 公式 |
-
-想新增第四種用途（例如 IG 方形 1080×1080），步驟見 `agent.md` 第 6 節。
-
----
-
-## 📦 使用的開源資源
-
-- 字型：[霞鶩文楷 TC](https://github.com/lxgw/LxgwWenkaiTC)、[芫荽 Iansui](https://github.com/ButTaiwan/iansui)、[Caveat](https://fonts.google.com/specimen/Caveat)（皆為 SIL Open Font License）
-- 公式：[KaTeX](https://katex.org/)（MIT）
-- 截圖：[Playwright](https://playwright.dev/)
-
-> 上傳 GitHub 時建議在 `.gitignore` 加入 `node_modules/` 與 `__pycache__/`，使用者 clone 後執行 `npm install` 即可。
