@@ -6,8 +6,7 @@
 
 | 01 平均數與中位數｜圖卡 | 02 常態分布｜海報 | 03 信賴區間｜封面 |
 |:---:|:---:|:---:|
-| <img src="images/preview-01-card.png" width="230"> | <img src="images/preview-02-poster.png" width="330"> | <img src="images/preview-03-cover.png" width="300"> |
-
+| <img src="preview-01-card.png" width="230"> | <img src="preview-02-poster.png" width="330"> | <img src="preview-03-cover.png" width="300"> |
 ---
 
 ## ✨ 特色
